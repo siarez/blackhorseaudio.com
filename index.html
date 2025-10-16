@@ -1,0 +1,294 @@
+<!--
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: home
+---
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Black Horse Audio — Clearer highs, controlled lows.</title>
+  <meta name="description" content="Band‑Selective Current Drive amplifier module with built‑in DSP for active crossover & EQ. Frequency‑shaped output impedance: low‑frequency damping, current control through the rest of the band. Join the launch list." />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{
+      --bg: #0b0c0f;        /* rich black */
+      --panel: #12141a;     /* card background */
+      --text: #e9ecf1;      /* primary text */
+      --muted: #b6bfcc;     /* secondary text */
+      --brand: #7c8cff;     /* brand accent */
+      --accent: #9be37a;    /* success accent */
+      --danger: #ff7b7b;    /* error accent */
+      --hairline: #232733;  /* subtle borders */
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --maxw: 1080px;
+    }
+
+    html,body{height:100%;}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 80% -10%, #1a1f2f 0%, rgba(26,31,47,0) 60%), var(--bg);
+      color: var(--text);
+      line-height:1.6;
+    }
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:32px 20px 80px;}
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:18px 0 8px;}
+    .brand{display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--text)}
+    .brand-logo{width:42px; height:42px; border-radius:50%; background: linear-gradient(135deg, #3b3f60, #23263a); display:grid; place-items:center; box-shadow:var(--shadow);}
+    .brand-logo svg{width:24px; height:24px;}
+    .brand-name{font-weight:700; letter-spacing:.2px;}
+
+    .hero{display:grid; grid-template-columns: 1.1fr 0.9fr; gap:28px; align-items:center; margin-top:24px;}
+    @media (max-width:960px){.hero{grid-template-columns:1fr;}}
+
+    .h-eyebrow{display:inline-block; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); background:#0f1116; border:1px solid var(--hairline); padding:8px 10px; border-radius:999px;}
+    h1{font-size:44px; line-height:1.1; margin:14px 0 12px;}
+    .lead{font-size:18px; color:var(--muted); margin:0 0 20px;}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border:1px solid var(--hairline); border-radius:var(--radius); box-shadow:var(--shadow);}
+    .panel{padding:20px;}
+
+    /* email form */
+    form{display:grid; grid-template-columns: 1fr auto; gap:10px; align-items:start;}
+    @media (max-width:640px){form{grid-template-columns:1fr;}}
+    label{font-size:14px; color:var(--muted);}
+    .field{display:flex; flex-direction:column; gap:6px;}
+    input[type="email"], input[type="text"]{width:100%; padding:14px 14px; border-radius:12px; border:1px solid var(--hairline); background:#0e1117; color:var(--text); font-size:16px; outline:none;}
+    input[type="email"]:focus, input[type="text"]:focus{border-color:#3d4157; box-shadow:0 0 0 4px rgba(124,140,255,.15)}
+    .consent{display:flex; gap:10px; align-items:flex-start;}
+    .consent input{margin-top:4px;}
+    .btn{appearance:none; border:0; background:linear-gradient(180deg, var(--brand), #6a79ee); color:white; padding:14px 18px; font-weight:700; border-radius:12px; cursor:pointer; transition:transform .04s ease, filter .2s ease;}
+    .btn:hover{filter:brightness(1.05)}
+    .btn:active{transform:translateY(1px)}
+    .note{font-size:12px; color:var(--muted);}
+    .success, .error{display:none; margin-top:10px; padding:12px 14px; border-radius:12px;}
+    .success{background:rgba(155,227,122,.12); border:1px solid rgba(155,227,122,.35); color:#d4ffd1}
+    .error{background:rgba(255,123,123,.12); border:1px solid rgba(255,123,123,.35); color:#ffd6d6}
+
+    /* sections */
+    section{margin-top:54px;}
+    h2{font-size:28px; margin:0 0 14px;}
+    .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;}
+    @media (max-width:960px){.grid{grid-template-columns:1fr;}}
+    .tile{background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border:1px solid var(--hairline); border-radius:var(--radius-sm); padding:18px;}
+    .tile h3{margin:0 0 6px; font-size:18px}
+    .tile p{margin:0; color:var(--muted)}
+
+    .media{background:radial-gradient(400px 240px at 80% 0%, rgba(124,140,255,.25), rgba(124,140,255,0) 60%), #0d0f14; border:1px dashed #2a3041; border-radius:var(--radius); aspect-ratio:16/10; display:grid; place-items:center; color:#8892a8}
+
+    details{border:1px solid var(--hairline); border-radius:12px;}
+    summary{cursor:pointer; padding:14px 16px; font-weight:600}
+    details > div{padding:0 16px 16px}
+
+    footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--hairline); color:var(--muted)}
+    .muted{color:var(--muted)}
+    .pill{display:inline-block; font-size:12px; padding:4px 8px; border:1px solid var(--hairline); border-radius:999px; color:var(--muted)}
+    .row{display:flex; flex-wrap:wrap; gap:10px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#">
+        <span class="brand-logo" aria-hidden="true">
+          <!-- Simple horse head glyph -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 14c0-5 3-9 9-9 2.5 0 4.5 1 6 3l-2.5 1.5c.2 1.7-.3 3.3-1.5 4.5-1.2 1.2-3 2-5 2H4z"/>
+            <path d="M6 14c.5 1.5 2 3 4 3 2.7 0 6-2 6-6"/>
+          </svg>
+        </span>
+        <span class="brand-name">Black Horse Audio</span>
+      </a>
+      <span class="pill">Launch list open</span>
+    </header>
+
+    <section class="hero">
+      <div>
+        <span class="h-eyebrow">Band‑Selective Current Drive</span>
+        <h1>Clearer highs, controlled lows.</h1>
+        <p class="lead">Most speakers are driven by voltage‑feedback amps—even though sound is created by <em>current</em> in the voice coil. Our module uses <strong>Band‑Selective Current Drive</strong>: it keeps output impedance <strong>low at low frequencies</strong> for woofer damping, then presents <strong>high output impedance</strong> through the rest of the band to clean up current‑driven mid/high distortion. It also includes a <strong>built‑in DSP</strong> with an easy desktop app for <strong>active crossover and EQ</strong>.</p>
+        <div class="card panel">
+          <form id="signup" action="https://formspree.io/f/your_form_id_here" method="POST">
+            <div class="field">
+              <label for="email">Get product updates & early‑bird pricing</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email" />
+            </div>
+            <button class="btn" type="submit">Join the launch list</button>
+            <div class="field" style="grid-column: 1 / -1;">
+              <div class="consent"><input id="consent" name="consent" type="checkbox" required /><label for="consent">I agree to receive emails about the Black Horse Audio amplifier module (product updates, launch timeline, early‑bird offers). You can unsubscribe anytime. We’ll never share your email.</label></div>
+            </div>
+            <!-- Honeypot for bots -->
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+            <input type="hidden" name="source" value="landing_v1" />
+          </form>
+          <div id="ok" class="success">Thanks! Please check your inbox to confirm.
+          </div>
+          <div id="err" class="error">Hmm, something went wrong. Please try again or email hello@blackhorseaudio.com.</div>
+          <p class="note" style="margin-top:12px">Made in Canada. Targeting DIY speaker builders and audio enthusiasts.
+          </p>
+        </div>
+      </div>
+      <div class="media">
+        <!-- Replace this with a product render or a graph image -->
+        <span>Drop your render or THD plots here</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Built‑in DSP: Active XO &amp; EQ</h2>
+      <div class="grid">
+        <div class="tile">
+          <h3>Active crossovers</h3>
+          <p>Design flexible active crossovers in the desktop app—no passive network between amp and driver. Save and recall presets for different builds.</p>
+        </div>
+        <div class="tile">
+          <h3>Powerful EQ</h3>
+          <p>Shape your response with DSP‑powered EQ to fine‑tune voicing and fix room or driver quirks. Simple presets for beginners; deeper controls if you want them.</p>
+        </div>
+        <div class="tile">
+          <h3>Set‑and‑forget workflow</h3>
+          <p>Use the <em>Transition Frequency</em> switch during setup, dial your XO &amp; EQ in software, then enjoy the clarity of Band‑Selective Current Drive.</p>
+        </div>
+      </div>
+    </section>
+
+    <section><h2>Why this matters</h2>
+      <div class="grid">
+        <div class="tile">
+          <h3>Midband/HF distortion = fatigue</h3>
+          <p>Non‑linear distortion blurs vocals and cymbal detail and leads to listening fatigue. A big contributor is <strong>current distortion</strong> from inductance modulation in the driver.</p>
+        </div>
+        <div class="tile">
+          <h3>We control what makes sound</h3>
+          <p>Electrodynamic drivers create sound from coil <em>current</em> (Lorentz force), not strictly coil voltage. So we improve <strong>current linearity</strong> where you hear it most.</p>
+        </div>
+        <div class="tile">
+          <h3>Clarity without pricier drivers</h3>
+          <p>Reducing current‑driven nonlinearity drops 3rd & 5th harmonics to levels you’d expect from far more expensive drivers. That’s clarity you can hear.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>How it works in the real world</h2>
+      <div class="grid">
+        <div class="tile">
+          <h3>Resonance stays controlled</h3>
+          <p>Pure current drive removes electrical damping (<em>Q<sub>es</sub></em>), lifting total Q near resonance. Our <strong>Band‑Selective Current Drive</strong> keeps <strong>low output impedance at low frequencies</strong> so the amp behaves like a voltage amp around Fs—your woofer remains well‑damped.</p>
+        </div>
+        <div class="tile">
+          <h3>Current control where it matters</h3>
+          <p>Above the LF region, the module presents <strong>high output impedance</strong> so coil current is less sensitive to the driver’s back‑EMF nonlinearity—cleaning up the 3rd/5th harmonics that cloud detail.</p>
+        </div>
+        <div class="tile">
+          <h3>Set once with a simple switch</h3>
+          <p>Use the <strong>Transition Frequency</strong> switch to place your driver’s Fs inside the low‑impedance region (e.g., Low • Mid • High). Choose once during setup—then forget it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid">
+        <div class="tile">
+          <h3>What you’ll get</h3>
+          <ul>
+            <li>Hybrid current‑control Class‑D module</li>
+            <li>Desktop app for active XO & EQ (Windows/macOS/Linux)</li>
+            <li>Guides, presets, and build examples</li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3>Who it’s for</h3>
+          <ul>
+            <li>DIY speaker builders & modders</li>
+            <li>Active monitor and 2‑way enthusiasts</li>
+            <li>Makers who value clarity over color</li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3>Proof (slot for plots)</h3>
+          <p>Show THD vs frequency comparing Band‑Selective Current Drive to a standard voltage amp. Highlight reduced 3rd/5th harmonics above the LF region. Add a caption with driver model & test setup.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>FAQ</h2>
+      <details>
+        <summary>Does it include DSP for crossovers and EQ?</summary>
+        <div>Yes. The module has a <strong>built‑in DSP</strong> controlled by a desktop app. Implement your active crossover and EQ in software—no passive network sits between the amp and the driver.</div>
+      </details>
+      <details style="margin-top:10px">
+        <summary>Does it work with passive crossovers?</summary>
+        <div>For current control to be effective, the amplifier should connect directly to the driver. Use the built‑in DSP to implement your crossover and EQ actively.</div>
+      </details>
+      <details style="margin-top:10px">
+        <summary>Will it over‑excite my woofer at resonance?</summary>
+        <div>No—<strong>Band‑Selective Current Drive</strong> keeps output impedance <strong>low at low frequencies</strong> so the amp behaves like a voltage amp around resonance, preserving damping.</div>
+      </details>
+      <details style="margin-top:10px">
+        <summary>Is this adaptive?</summary>
+        <div>No. The profile is fixed but <em>frequency‑shaped</em>. You select the transition frequency during setup so your driver’s Fs sits in the low‑impedance region. After that, it’s hands‑off.</div>
+      </details>
+      <details style="margin-top:10px">
+        <summary>Do I need to be “super technical” to use it?</summary>
+        <div>The desktop app exposes friendly presets and simple controls. You can go deep if you want, but you don’t have to.</div>
+      </details>
+    </section>
+
+    <section>
+      <h2>Curious how it works?</h2>
+      <details>
+        <summary>Technical appendix (optional reading)</summary>
+        <div>
+          <p>Model the driver’s back‑EMF as including a distorting source. By keeping <strong>output impedance low at low frequencies</strong>, the amplifier preserves Qes‑linked damping around resonance. Above that region it presents <strong>high output impedance</strong>, making current less sensitive to the nonlinear source and reducing distortion products dominated by 3rd and 5th harmonics. The built‑in DSP handles active crossovers so no passive network sits between the amp and the driver.</p>
+        </div>
+      </details>
+    </section>
+
+    <footer>
+      <div class="row" style="justify-content:space-between; align-items:center">
+        <div>
+          © <span id="y"></span> Black Horse Audio • Vancouver, Canada
+        </div>
+        <div class="muted">Questions? <a href="mailto:hello@blackhorseaudio.com">hello@blackhorseaudio.com</a></div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Year in footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Lightweight AJAX submit (Formspree or similar). Replace action URL above.
+    const form = document.getElementById('signup');
+    const ok = document.getElementById('ok');
+    const err = document.getElementById('err');
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      ok.style.display = 'none';
+      err.style.display = 'none';
+      const fd = new FormData(form);
+      // naive honeypot check
+      if (fd.get('_honey')) return;
+      try{
+        const res = await fetch(form.action, {method:'POST', body: fd, headers:{'Accept':'application/json'}});
+        if(res.ok){
+          ok.style.display = 'block';
+          form.reset();
+        } else {
+          err.style.display = 'block';
+        }
+      }catch(_){
+        err.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
