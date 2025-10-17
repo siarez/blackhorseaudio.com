@@ -79,8 +79,9 @@ h2{font-size:28px; margin:0 0 14px;}
 
 .media{background:radial-gradient(400px 240px at 80% 0%, rgba(124,140,255,.25), rgba(124,140,255,0) 60%), #0d0f14; border:1px dashed #2a3041; border-radius:var(--radius); aspect-ratio:16/10; display:grid; place-items:center; color:#8892a8}
 
-details{border:1px solid var(--hairline); border-radius:12px;}
+details{border:1px solid var(--hairline); border-radius:12px; overflow:hidden}
 summary{cursor:pointer; padding:14px 16px; font-weight:600}
+details > div{padding:0 16px 16px}
 
 .muted{color:var(--muted)}
 .pill{display:inline-block; font-size:12px; padding:4px 8px; border:1px solid var(--hairline); border-radius:999px; color:var(--muted)}
