@@ -8,7 +8,7 @@ description: "Band‑Selective Current Drive amplifier module with built‑in DS
   <header>
     <a class="brand" href="{{ '/' | relative_url }}">
       <span class="brand-logo" aria-hidden="true">
-        <img src="{{ '/assets/images/horse.svg' | relative_url }}" alt="" width="40" height="40" decoding="async" />
+        <img src="{{ '/assets/images/horse_logo_thicker_filled_alpha.png' | relative_url }}" alt="" width="40" height="40" decoding="async" />
       </span>
       <span class="brand-name">Black Horse Audio</span>
     </a>
@@ -22,30 +22,15 @@ description: "Band‑Selective Current Drive amplifier module with built‑in DS
       <p class="lead">Almost all speakers are driven by voltage‑feedback amps—even though sound is created by <em>current</em> in the voice coil.
         Our module uses <strong>Band‑Selective Current Drive (BSCD)</strong>: it keeps output impedance <strong>low at low frequencies</strong> for woofer damping, then presents <strong>high output impedance</strong> through the rest of the band to clean up distortions.
         It also includes a <strong>built‑in DSP</strong> with an easy desktop app for <strong>active crossover and EQ</strong>.</p>
-      <div class="card panel">
-        <form id="signup" action="https://formspree.io/f/your_form_id_here" method="POST">
-          <div class="field">
-            <label for="email">Get product updates & early‑bird pricing</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email" inputmode="email" />
-          </div>
-          <button class="btn" type="submit">Join the launch list</button>
-          <div class="field span-all">
-            <div class="consent"><input id="consent" name="consent" type="checkbox" required /><label for="consent">I agree to receive emails about the Black Horse Audio amplifier module (product updates, launch timeline, early‑bird offers). You can unsubscribe anytime. We’ll never share your email.</label></div>
-          </div>
-          <!-- Honeypot for bots -->
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <input type="hidden" name="source" value="landing_v1" />
-        </form>
-        <div id="ok" class="success" role="status" aria-live="polite">Thanks! Please check your inbox to confirm.
-        </div>
-        <div id="err" class="error" role="alert" aria-live="assertive">Hmm, something went wrong. Please try again or email hello@blackhorseaudio.com.</div>
-        <p class="note mt-12">Made in Canada. Targeting DIY speaker builders, boutique speaker manufacturers.
-        </p>
-      </div>
+
     </div>
     <div class="media">
-      <!-- Replace this with a product render or a graph image -->
-      <span>Drop your render or THD plots here</span>
+      <img src="{{ '/assets/images/module_3d_rendering.png' | relative_url }}" alt="3D rendering of Black Horse Audio amplifier module" decoding="async" loading="eager" fetchpriority="high" />
+    </div>
+
+    <div class="card panel span-all" style="display:flex; justify-content:center;" >
+      <script async src="https://eocampaign1.com/form/8149bf02-e5fa-11f0-9bf4-b36240784b71.js" data-form="8149bf02-e5fa-11f0-9bf4-b36240784b71"></script>
+
     </div>
   </section>
 
@@ -117,6 +102,7 @@ description: "Band‑Selective Current Drive amplifier module with built‑in DS
       <div class="tile">
         <h3>Who it’s for</h3>
         <ul>
+          <li>Boutique speaker manufacturers</li>
           <li>DIY speaker builders &amp; modders</li>
           <li>Active monitor enthusiasts</li>
           <li>Makers who value clarity over color</li>
@@ -157,7 +143,10 @@ description: "Band‑Selective Current Drive amplifier module with built‑in DS
     <details>
       <summary>Technical appendix (optional reading)</summary>
       <div>
-        <p>Model the driver’s back‑EMF as including a distorting source. By keeping <strong>output impedance low at low frequencies</strong>, the amplifier preserves Qes‑linked damping around resonance. Above that region it presents <strong>high output impedance</strong>, making current less sensitive to the nonlinear source and reducing distortion products dominated by 3rd and 5th harmonics. The built‑in DSP handles active crossovers so no passive network sits between the amp and the driver.</p>
+        <p>An electrodynamic driver’s back‑EMF can be thought of as including a distorting voltage source that is produced by modulation of inductance as a function of current a.k.a Le(i).
+          This type of distortion is indpendent of displacement, and is therefore dominant at low displacement regimes (e.g. mid and high frequencies) - even at low volumes.
+          <br/>By keeping <strong>output impedance low at low frequencies</strong>, the amplifier preserves Qes‑linked damping around resonance. Above that region it presents <strong>high output impedance</strong>, making current less sensitive to the distortion produced by Le(i) and reducing odd-order (3rd, 5th, ...) distortion products dominated.
+          <br/>The built‑in DSP handles active crossovers/EQ, so there is no need for a passive network to sit between the amp and the drivers.</p>
       </div>
     </details>
   </section>
@@ -167,7 +156,7 @@ description: "Band‑Selective Current Drive amplifier module with built‑in DS
       <div>
         © {{ site.time | date: '%Y' }} Black Horse Audio • Vancouver, Canada
       </div>
-      <div class="muted">Questions? <a href="mailto:hello@blackhorseaudio.com">hello@blackhorseaudio.com</a></div>
+      <div class="muted">Questions? <a href="mailto:hello@blackhorseaudio.com"    style="color: rgb(164 70 18);">hello@blackhorseaudio.com</a></div>
     </div>
   </footer>
 </div>
