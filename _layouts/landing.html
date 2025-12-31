@@ -30,7 +30,12 @@
   <meta name="twitter:image" content="{{ page.image | default: site.og_image | absolute_url }}" />
   {% endif %}
   <meta name="theme-color" content="#0b0c0f" />
-  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" />
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/horse_logo_favicon/apple-touch-icon.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/horse_logo_favicon/favicon-32x32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/horse_logo_favicon/favicon-16x16.png' | relative_url }}">
+  <link rel="icon" href="{{ '/assets/images/horse_logo_favicon/favicon.ico' | relative_url }}">
+  <link rel="manifest" href="{{ '/assets/images/horse_logo_favicon/site.webmanifest' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}" />
 </head>
 <body>
