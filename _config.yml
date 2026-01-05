@@ -34,6 +34,11 @@ theme: minima
 plugins:
   - jekyll-feed
 
+# Analytics
+# Set your GA4 Measurement ID to enable analytics include in production builds
+# Example: GA4 format is G-XXXXXXXXXX
+ga_measurement_id: G-PEHPWGT9VE
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

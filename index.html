@@ -161,34 +161,5 @@ description: "Band‑Selective Current Drive amplifier module with built‑in DS
   </footer>
 </div>
 
-<script>
-  // Lightweight AJAX submit (Formspree or similar). Replace action URL above.
-  const form = document.getElementById('signup');
-  const ok = document.getElementById('ok');
-  const err = document.getElementById('err');
-  const btn = form.querySelector('button[type="submit"]');
-  form.addEventListener('submit', async (e)=>{
-    e.preventDefault();
-    ok.style.display = 'none';
-    err.style.display = 'none';
-    btn.disabled = true;
-    btn.setAttribute('aria-busy', 'true');
-    const fd = new FormData(form);
-    // naive honeypot check
-    if (fd.get('_honey')) { btn.disabled = false; btn.removeAttribute('aria-busy'); return; }
-    try{
-      const res = await fetch(form.action, {method:'POST', body: fd, headers:{'Accept':'application/json'}});
-      if(res.ok){
-        ok.style.display = 'block';
-        form.reset();
-      } else {
-        err.style.display = 'block';
-      }
-    }catch(_){
-      err.style.display = 'block';
-    } finally {
-      btn.disabled = false;
-      btn.removeAttribute('aria-busy');
-    }
-  });
-</script>
+<!-- EmailOctopus forms typically submit via a normal POST.
+     The previous AJAX handler has been removed to avoid CORS issues. -->
