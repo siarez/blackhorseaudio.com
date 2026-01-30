@@ -27,6 +27,12 @@ body{
   line-height:1.6;
 }
 
+/* Global link color applied to anchor tags only */
+a{color: rgb(164, 70, 18);}
+/* Preserve parent color for element children inside links */
+*{--parent-color: currentColor;}
+a > *{color: var(--parent-color);}
+
 /* Accessibility */
 .skip-to-content{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
 .skip-to-content:focus{position:static; width:auto; height:auto; padding:8px 12px; background:#0f1116; border:1px solid var(--hairline); border-radius:999px}
@@ -34,7 +40,7 @@ body{
 /* Layout */
 .wrap{max-width:var(--maxw); margin:0 auto; padding:32px 20px 80px;}
 header{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:18px 0 8px;}
-.brand{display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--text)}
+.brand{display:flex; align-items:center; gap:14px; text-decoration:none;}
 .brand-logo{width:42px; height:42px; border-radius:50%; background: linear-gradient(135deg, #3b3f60, #23263a); display:grid; place-items:center; box-shadow:var(--shadow); overflow:hidden; color:#fff}
 .brand-logo svg, .brand-logo img{width:40px; height:auto; display:block;}
 .brand-logo img{filter: brightness(0) invert(1); object-fit:contain; object-position:center}
@@ -54,7 +60,7 @@ h1{font-size:44px; line-height:1.1; margin:14px 0 12px;}
 .content p{margin:0 0 14px; color:var(--muted)}
 .content ul, .content ol{margin:0 0 16px 22px; color:var(--muted)}
 .content li{margin:6px 0}
-.content a{color:var(--text)}
+.content a{color: rgb(164, 70, 18)}
 .content hr{border:0; border-top:1px solid var(--hairline); margin:24px 0}
 .content img{max-width:100%; height:auto; border-radius:12px;}
 .content blockquote{margin:16px 0; padding:12px 14px; border-left:3px solid #3a415a; background:#0f1116; color:var(--muted); border-radius:8px}
