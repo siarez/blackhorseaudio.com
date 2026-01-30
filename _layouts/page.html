@@ -37,13 +37,25 @@
   <link rel="icon" href="{{ '/assets/images/horse_logo_favicon/favicon.ico' | relative_url }}">
   <link rel="manifest" href="{{ '/assets/images/horse_logo_favicon/site.webmanifest' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}" />
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   {% include analytics.html %}
 </head>
 <body>
   <a href="#main" class="skip-to-content">Skip to content</a>
   <main id="main" tabindex="-1">
-    {{ content }}
+    <div class="wrap">
+      <header>
+        <a class="brand" href="{{ '/' | relative_url }}">
+          <span class="brand-logo" aria-hidden="true">
+            <img src="{{ '/assets/images/horse_logo_thicker_filled_alpha.png' | relative_url }}" alt="" width="40" height="40" decoding="async" />
+          </span>
+          <span class="brand-name">Black Horse Audio</span>
+        </a>
+      </header>
+      <article class="content">
+        {{ content }}
+      </article>
+    </div>
   </main>
 </body>
 </html>
+
