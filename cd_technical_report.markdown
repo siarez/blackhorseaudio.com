@@ -38,19 +38,19 @@ This took months longer than expected. If you’ve ever tried to measure distort
 
 ---
 
-## What “current feedback” means here (quickly)
+## What is “current feedback” ?
 
 ### Voltage feedback (VF) / voltage control
 The amplifier tries to make the **output voltage** follow the input signal.
 
 ### Current feedback (CF) / current control
-The amplifier uses a feedback path that makes the **delivered current** behave more linearly, so nonlinear back-EMF / impedance modulation in the driver is less able to turn into nonlinear current (and therefore nonlinear force).
+The amplifier uses a feedback path that makes the **delivered current** behave more linearly, so nonlinear back-EMF of the driver is less able to turn into nonlinear current (and therefore nonlinear force).
 
 This isn’t “EQ.” EQ can fix response shape; it doesn’t directly target the electrical/mechanical nonlinearity mechanisms that create harmonic distortion.
 
 ---
 
-## Measurement method (what I actually did)
+## Measurement method
 
 I don’t have an anechoic room or a Klippel, so these measurements are **very near-field**. That means SPL at the mic is high, and microphone distortion becomes a real problem if you’re not careful.
 
@@ -65,13 +65,36 @@ To compare drivers more fairly, I pre-compensated the sweep so that the **measur
 
 105 dB at 1 inch is not a normal listening measurement geometry, but it roughly corresponds to ~**82 dB at 1 meter** for a single 6" driver in that band (very rough, but it keeps the level in a “normal listening” ballpark for this analysis).
 
-### A note on “fairness” across driver sizes
-Yes, this deviates from typical speaker measurement practice. The justification is pragmatic:
 
-- Small drivers aren’t expected to compete with large drivers at far-field SPL.
-- By measuring near-field and controlling level in the analysis band, I’m trying to compare **motor distortion behavior** at an output level that is more representative of what each driver might be used for, rather than “who wins at 1 m at the same SPL.”
+> ### A note on “fairness” across driver sizes
+> Yes, this deviates from typical speaker measurement practice. The justification is pragmatic:
+>
+> - Small drivers aren’t expected to compete with large drivers at far-field SPL.
+> - By measuring near-field and controlling level in the analysis band, I’m trying to compare **motor distortion behavior** at an output level that is more representative of what each driver might be used for, rather than “who wins at 1 m at the same SPL.”
+>
+> It’s not perfect, but it gives a consistent basis for a *large* sample comparison.
 
-It’s not perfect, but it gives a consistent basis for a *large* sample comparison.
+---
+
+## Drivers measured
+
+| **Brand** | **Models** |
+| --- | --- |
+| Tang Band | W8-1808, W4-1757SB, W4-1720, W3-881SJ |
+| Purifi | PTT4.0X |
+| Fostex | FF105WK, FE126En |
+| Visaton | B100, GF200, B200 |
+| SB Acoustics | SB20FRPC30-8, SB20PFCR30-8, SB12NRX, SB12PAC25-4, SB12PFC25-4 |
+| Vifa | NE95W-04 |
+| Fountek | FR88EX, FR88, FW135F, FW100B |
+| Peerless | TC9FD-18-08, TG9FD10-04, 830656 |
+| Seas | MU10RB-SL |
+| Dayton | RS100-8, LW150, RS125S-8 |
+| FaitalPro | 6FE100 |
+| Polk | T15 5" woofer |
+| Klipsch | Quintet 3" midwoofer |
+| Wave Core | WF090WA01-01 |
+| Multicomp Pro | 55-5650, 55-5670 |
 
 ---
 
@@ -119,46 +142,22 @@ Put less formally:
 
 > **On average, a driver on CF tends to land near the odd-order distortion performance you’d normally associate with much pricier drivers (by this normalized-price metric).**
 
----
 
-## Put differently (average change in the midrange)
-
+We could also look at how far the best fit line has shifted down.
 Across the dataset, in **200 Hz–4 kHz**, CF reduced:
 - **H3** (3rd harmonic): ~**11 dB** lower on average
 - **H5** (5th harmonic): ~**6 dB** lower on average
 
-These are not “amp THD” numbers — this is what comes out of the driver in the measurement setup described above.
 
 ---
 
-## Drivers measured
+## Visual summary
 
-| Brand | Models |
-| --- | --- |
-| Tang Band | W8-1808, W4-1757SB, W4-1720, W3-881SJ |
-| Purifi | PTT4.0X |
-| Fostex | FF105WK, FE126En |
-| Visaton | B100, GF200, B200 |
-| SB Acoustics | SB20FRPC30-8, SB20PFCR30-8, SB12NRX, SB12PAC25-4, SB12PFC25-4 |
-| Vifa | NE95W-04 |
-| Fountek | FR88EX, FR88, FW135F, FW100B |
-| Peerless | TC9FD-18-08, TG9FD10-04, 830656 |
-| Seas | MU10RB-SL |
-| Dayton | RS100-8, LW150, RS125S-8 |
-| FaitalPro | 6FE100 |
-| Polk | T15 woofer |
-| Klipsch | Quintet MidWoofer |
-| Wave Core | WF090WA01-01 |
-| Multicomp Pro | 55-5650, 55-5670 |
-
----
-
-## Optional: quick visual summary (average distortion reduction)
-
-If you want the “one glance” view:
+If you want the “one glance” view,
+the plot below shows how much the harmonic distortions chnaged (relative to voltage drive) over the measured band.
 
 ![Relative change in harmonic distortion switching VF to CF](/assets/images/deltaHD.png)
-*Relative change in harmonic distortion when switching from VF to CF (negative values indicate reduction).*
+*Relative change in harmonic distortion when switching from VF to CF (negative values indicate a reduction).*
 
 ---
 
