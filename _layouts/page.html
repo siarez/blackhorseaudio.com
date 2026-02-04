@@ -39,6 +39,9 @@
   <link rel="stylesheet" href="{{ '/assets/css/typefaces.css' | relative_url }}" />
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}" />
   {% include analytics.html %}
+  {% if page.permalink == '/current-feedback-study/' %}
+  <style>html{scroll-behavior:smooth}</style>
+  {% endif %}
 </head>
 <body class="page{% if page.permalink == '/current-feedback-study/' %} page-current-feedback-study{% endif %}">
   <a href="#main" class="skip-to-content">Skip to content</a>
@@ -63,6 +66,8 @@
       <article class="content">
         {{ content }}
       </article>
+      <hr class="page-hr" />
+      {% include footer.html %}
     </div>
     <script>
       (function(){
@@ -70,13 +75,34 @@
         if(!toc) return;
         var headers = document.querySelectorAll('article.content h2');
         var makeId = function(txt){return txt.toLowerCase().trim().replace(/[^a-z0-9\s-]/g,'').replace(/\s+/g,'-');};
+        var linkById = {};
         headers.forEach(function(h){
           if(!h.id){ h.id = makeId(h.textContent || h.innerText || 'section'); }
           var li = document.createElement('li');
           var a = document.createElement('a');
           a.href = '#' + h.id; a.textContent = h.textContent || h.innerText;
+          linkById[h.id] = a;
           li.appendChild(a); toc.appendChild(li);
         });
+        // Highlight active section link on scroll (minimal JS)
+        function setActive(id){
+          var cur = toc.querySelector('a.active');
+          if(cur) cur.classList.remove('active');
+          var next = linkById[id];
+          if(next) next.classList.add('active');
+        }
+        function onScroll(){
+          var pos = window.scrollY + 140; // offset for top padding
+          var current = headers[0] ? headers[0].id : null;
+          for(var i=0;i<headers.length;i++){
+            if(headers[i].offsetTop <= pos){ current = headers[i].id; }
+          }
+          if(current) setActive(current);
+        }
+        window.addEventListener('scroll', onScroll, {passive:true});
+        window.addEventListener('load', onScroll);
+        onScroll();
+        // Smooth scrolling handled via CSS (html{scroll-behavior:smooth})
       })();
     </script>
     {% else %}

@@ -28,7 +28,9 @@ html,body{height:100%;}
   font-display: swap;
 }
 body{
-  margin:0; font-family: 'Freight Text Pro', Georgia, 'Times New Roman', serif; font-size:19px;
+  margin:0;
+  font-family: concourse-t3, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  font-size:19px;
   background-color: var(--bg);
   background-image: radial-gradient(1200px 800px at 80% -10%, #1a1f2f 0, rgba(26,31,47,0) 60%);
   background-attachment: fixed;
@@ -65,6 +67,16 @@ header{display:flex; align-items:center; justify-content:space-between; gap:16px
 h1{font-size:44px; line-height:1.1; margin:14px 0 12px;}
 .brand, .btn, header{font-family: concourse-t3, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
 h1, h2, h3{letter-spacing: .04em; font-family: concourse-t6, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; font-weight: normal;}
+/* Concourse has weight-specific families; map bold to a heavier family */
+h1, h2, h3{letter-spacing: .04em; font-family: concourse-t6, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; font-weight: normal;}
+/* Concourse has weight-specific families; map bold to a heavier family */
+b, strong{font-family: concourse-t6, sans-serif; font-weight: bold; letter-spacing: 0.02em; opacity:0.9}
+h1 b, h1 strong,
+h2 b, h2 strong,
+h3 b, h3 strong,
+h4 b, h4 strong,
+h5 b, h5 strong,
+h6 b, h6 strong{font-family: concourse-t7, concourse-t6, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji", sans-serif; font-weight: normal;}
 .lead{font-size:18px; text-align: justify; color:var(--muted); margin:0 0 20px;}
 /* general content (markdown) */
 .content{font-size:inherit}
@@ -106,6 +118,7 @@ h1, h2, h3{letter-spacing: .04em; font-family: concourse-t6, ui-sans-serif, syst
 .toc-list{list-style:none; padding:0; margin:0}
 .toc-list li{margin:6px 0}
 .toc-list a{font-size:16px; font-family: concourse-t3; letter-spacing: 0.04em; color:var(--muted)}
+.toc-list a.active{color: rgb(164, 70, 18); font-weight:700}
 @media (max-width:1200px){ .toc-fixed{display:none} }
 
 /* Page hero for study page */
@@ -151,7 +164,7 @@ h2{font-size:28px; margin:0 0 14px;}
 /* Staggered feature sections */
 .feature{display:grid; grid-template-columns: 1fr 1fr; gap:28px; align-items:center; margin-top:64px;}
 @media (max-width:960px){.feature{grid-template-columns:1fr;}}
-.feature-media{aspect-ratio:1/1; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid var(--hairline); border-radius:var(--radius); overflow:hidden; display:grid; place-items:center; color:#8892a8}
+.feature-media{aspect-ratio:1/1; padding: 40px; overflow:hidden; display:grid; place-items:center; color:#8892a8}
 .feature-media img{opacity: 0.9; width:100%; height:100%; object-fit:cover; display:block}
 .feature h2{margin:0 0 12px;}
 .feature h3{margin:14px 0 6px; font-size:18px}
@@ -172,6 +185,11 @@ details > div{padding:0 16px 16px}
 .mt-12{margin-top:12px;}
 .row-between{justify-content:space-between;}
 .items-center{align-items:center;}
+.list-tight{margin:8px 0 0; padding-left:18px;}
+.list-tight li{margin:4px 0;}
+
+/* Separator before page layout footer */
+.page-hr{border:0; border-top:1px solid var(--hairline); margin:36px 0 18px;}
 
 @media (prefers-reduced-motion: reduce){
   *{transition:none !important; animation:none !important}
