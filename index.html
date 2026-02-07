@@ -25,22 +25,41 @@ description: "Band‑Selective Current Drive amplifier module with built‑in DS
       <span class="h-eyebrow">Band‑Selective Current Drive Amplifier</span>
       <h1>Clearer highs, controlled lows.</h1>
       <p class="lead">
-        Almost all speakers are driven by voltage‑feedback amps—even though sound is created by <em>current</em> in the
-        voice coil. Controlling current specially in the midrange dramatically reduces driver distortion -
-        <a href="current-feedback-study">see the study</a>.
+        <!--Almost all speakers are driven by voltage‑feedback amps—even though sound is created by <em>current</em> in the-->
+        <!--voice coil. Controlling current specially in the midrange dramatically reduces driver distortion --->
+        Most modern amplifiers already have extremely low measured distortion; so low that, in a real speaker
+        system, <strong>the driver is the distortion bottleneck.</strong>
+        <br/>
+        The amplifier’s distortion is typically under 0.01%, while the driver’s can be 0.1% to 10%.
+        So adding another “zero” to an amplifier spec is often an engineering flex more than a system upgrade.
       </p>
+      <p class="lead">
+        Here, I’ve been exploring a different lever: make the driver’s current more linear, because current is what creates force in the voice coil.
+
+        That’s what this module does. It uses <strong>Band‑Selective Current Drive (BSCD)</strong>:
+        it behaves like a normal low-impedance voltage amp at low frequencies (so resonance stays damped),
+        then transitions to <strong>current control</strong> through the rest of the band to clean up distortions (<a href="current-feedback-study">see the study</a>).
+        <!--— where driver nonlinearities tend to show up as the kind of distortion that blurs detail.-->
+
+        It also includes a <strong>built‑in DSP</strong> with a simple desktop app for
+        easy active crossover and EQ design.
+      </p>
+
+      <!--
       <p class="lead">
         Our module uses <strong>Band‑Selective Current Drive (BSCD)</strong>: it keeps output impedance
         <strong>low at low frequencies</strong> for better damping, then presents
         <strong>high output impedance</strong> (i.e. current control) through the rest of the band to clean up
-        distortions. It also includes a <strong>built‑in DSP</strong> with an easy desktop app for
+        distortions (<a href="current-feedback-study">see the study</a>).
+        Our module also includes a <strong>built‑in DSP</strong> with an easy desktop app for
         <strong>active crossover and EQ</strong>.
       </p>
+      -->
     </div>
     <div class="media">
       <img
-        src="{{ '/assets/images/module_3d_rendering.png' | relative_url }}"
-        alt="3D rendering of Black Horse Audio amplifier module"
+      src="{{ '/assets/images/amp_cropped_compressed.jpeg' | relative_url }}"
+        alt="Black Horse Audio amplifier module"
         decoding="async"
         loading="eager"
         fetchpriority="high" />
@@ -152,7 +171,7 @@ description: "Band‑Selective Current Drive amplifier module with built‑in DS
   </section>
   <section class="feature">
     <div class="feature-media">
-      <img src="{{ '/assets/images/module_3d_rendering.png' | relative_url }}" alt="" loading="lazy" decoding="async" />
+      <img src="{{ '/assets/images/amp_wood.jpeg' | relative_url }}" alt="" loading="lazy" decoding="async" />
     </div>
     <div>
       <h2>No compromises</h2>
@@ -160,16 +179,15 @@ description: "Band‑Selective Current Drive amplifier module with built‑in DS
         <h3>Quality components</h3>
         <ul style="padding-left: 1em">
           <li>Coilcraft output inductors for ultra-low distortion.</li>
-          <li>
-            Signal-path capacitors are Nichicon electrolytic, film, or Class-I (C0G/NP0) ceramics.
-          </li>
+          <li>Signal-path capacitors are Nichicon electrolytic, film, or Class-I (C0G/NP0) ceramics.</li>
           <li>Thin-film resistors throughout to minimize noise and distortion.</li>
         </ul>
         <h3>Meticulous design</h3>
         <ul style="padding-left: 1em">
+          <li>Reverse polarity and in-rush current protection.</li>
           <li>Low-jitter clocking with careful noise control.</li>
-          <li>Differential audio routing with tightly matched, interference-resistant pairs.</li>
-          <li>Low-noise power delivery network engineered for clean, stable power delivery.</li>
+          <li>Differential audio routing with matched, interference-resistant pairs.</li>
+          <li>Low-noise power network for clean, stable power delivery.</li>
         </ul>
       </div>
     </div>
@@ -198,7 +216,7 @@ description: "Band‑Selective Current Drive amplifier module with built‑in DS
         <h3>Specs</h3>
         <!--<p>Show THD vs frequency comparing Band‑Selective Current Drive to a standard voltage amp. Highlight reduced 3rd/5th harmonics above the LF region. Add a caption with driver model &amp; test setup.</p>-->
         <ul class="list-tight">
-          <li>2 x 120W into 4Ω</li>
+          <li>2 x 120W into 4Ω @ 1% THD</li>
           <li>2 flexible balanced analog inputs</li>
           <li>I2S input and output</li>
           <li>Exposes I2C, SPI, ADC, GIPOs</li>

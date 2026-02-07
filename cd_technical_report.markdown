@@ -32,9 +32,9 @@ If you want all the details and plots:
 
 I first came across the idea through a paper and then Esa Meriläinen’s book. I tested current drive on a few drivers and saw significant changes in odd-order HD. That was exciting — enough that I started thinking about building a proper current-drive amplifier for my own projects.
 
-But building hardware is a big time sink, so before committing, I wanted evidence that the effect is **common** across drivers, not a niche corner case. That’s what this dataset is: a “does this generalize?” check.
+But building hardware is a big effort, so before committing, I wanted evidence that the effect is **common** across drivers, not a niche corner case. That’s what this dataset is: a “does this generalize?” check.
 
-This took months longer than expected. If you’ve ever tried to measure distortion in a non-anechoic environment without a Klippel… you can probably guess why.
+This took months longer than expected. If you’ve ever tried to get consistent/repeatable distortion measurements in a non-anechoic environment without a Klippel… you can probably guess why.
 
 ---
 
@@ -179,4 +179,3 @@ If you’re the type who wants every detail, all of it is in the PDF:
 
 If you’d like to replicate or extend this measurement set, I’m putting together a short “how I did it” guide (QA403 automation + sweep pre-compensation + analysis scripts).
 
-If that’s useful to you, you can **[get notified](/notify/)** when it’s posted.
