@@ -30,13 +30,13 @@ description: "Band‑Selective Current Drive amplifier module with built‑in DS
         system, <strong>the driver is the distortion bottleneck.</strong>
         <br/>
         The amplifier’s distortion is typically under 0.01%, while the driver’s can be 0.1% to 10%.
-        So adding another “zero” to an amplifier spec is often an engineering flex more than a system upgrade.
+        So adding another “zero” to THD is often an engineering flex more than a system upgrade.
       </p>
       <p class="lead">
         Here, I’ve been exploring a different lever: make the driver’s current more linear, because current is what creates force in the voice coil.
 
         That’s what this module does. It uses <strong>Band‑Selective Current Drive (BSCD)</strong>:
-        it behaves like a normal low-impedance voltage amp at low frequencies (so resonance stays damped),
+        it behaves like a normal voltage amp at low frequencies (i.e. high damping factor),
         then transitions to <strong>current control</strong> through the rest of the band to clean up distortions (<a href="current-feedback-study">see the study</a>).
         <!--— where driver nonlinearities tend to show up as the kind of distortion that blurs detail.-->
 
@@ -160,9 +160,9 @@ description: "Band‑Selective Current Drive amplifier module with built‑in DS
           beginners; deeper controls if you want them.
         </p>
 
-        <h3>Set‑and‑forget workflow</h3>
+        <h3>Workflow</h3>
         <p>
-          Use the <em>Transition Frequency</em> switch during setup, dial your XO &amp; EQ and send the configs to the amp through USB-C, then enjoy the
+          Set the <em>Transition Frequency</em> switch, dial your XO &amp; EQ and send the configs to the amp through USB-C, then enjoy the
           clarity of Band‑Selective Current Drive.
         </p>
       </div>
