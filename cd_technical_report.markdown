@@ -3,6 +3,8 @@ layout: page
 title: "Current Drive vs Voltage Drive: a 31-driver distortion study"
 permalink: /current-feedback-study/
 description: "A personal measurement writeup comparing voltage drive vs current-feedback drive across 31 loudspeaker drivers, including a ~6× normalized price-to-performance shift for odd-order distortion (regression)."
+hero_image: /assets/images/drivers.jpeg
+hero_alt: "Array of loudspeaker drivers arranged on a table"
 ---
 
 ## TL;DR
@@ -178,4 +180,3 @@ If you’re the type who wants every detail, all of it is in the PDF:
 ## Replication
 
 If you’d like to replicate or extend this measurement set, I’m putting together a short “how I did it” guide (QA403 automation + sweep pre-compensation + analysis scripts).
-

@@ -60,9 +60,11 @@
           <span class="brand-name">Black Horse Audio</span>
         </a>
       </header>
+      {% if page.hero_image %}
       <div class="page-hero">
-        <img src="{{ '/assets/drivers_on_table.jpeg' | relative_url }}" alt="Array of loudspeaker drivers arranged on a table" decoding="async" loading="eager" />
+        <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | default: '' | escape }}" decoding="async" loading="eager" />
       </div>
+      {% endif %}
       <article class="content">
         {{ content }}
       </article>
@@ -115,6 +117,11 @@
           <span class="brand-name">Black Horse Audio</span>
         </a>
       </header>
+      {% if page.hero_image %}
+      <div class="page-hero">
+        <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | default: '' | escape }}" decoding="async" loading="eager" />
+      </div>
+      {% endif %}
       <article class="content">
         {{ content }}
       </article>
