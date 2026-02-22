@@ -1,0 +1,38 @@
+---
+layout: page
+title: "Driver Distortion Comparison"
+permalink: /driver-comparison/
+description: "Interactive comparison of harmonic distortion measurements across drivers for voltage drive and current drive."
+wide: true
+body_class: driver-compare
+---
+
+<p class="note">
+  Toggle harmonics globally (H2/H3/H5), then select drivers and mode (VD/CD) to overlay traces.
+</p>
+
+<div class="compare-grid" id="driver-compare-app" data-src="{{ '/assets/data/all_driver_results.json' | relative_url }}">
+  <aside class="compare-panel">
+    <h3>Harmonics</h3>
+    <div class="harmonics" id="harmonics-controls"></div>
+
+    <div class="compare-actions">
+      <button class="compare-btn" id="select-all-vd" type="button">Select All VD</button>
+      <button class="compare-btn" id="select-all-cd" type="button">Select All CD</button>
+      <button class="compare-btn" id="clear-all" type="button">Clear All</button>
+    </div>
+
+    <input class="driver-search" id="driver-search" type="search" placeholder="Filter drivers..." aria-label="Filter drivers">
+
+    <div class="drivers-list" id="drivers-controls" aria-label="Driver toggles"></div>
+    <p class="compare-status" id="compare-status"></p>
+  </aside>
+
+  <section class="compare-plot-wrap">
+    <div class="compare-plot" id="compare-plot" aria-label="Distortion comparison plot"></div>
+    <div class="compare-legend" id="compare-legend" aria-label="Selected trace legend"></div>
+  </section>
+</div>
+
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="{{ '/assets/js/driver-comparison.js' | relative_url }}"></script>

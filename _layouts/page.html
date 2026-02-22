@@ -43,7 +43,7 @@
   <style>html{scroll-behavior:smooth}</style>
   {% endif %}
 </head>
-<body class="page{% if page.permalink == '/current-feedback-study/' %} page-current-feedback-study{% endif %}">
+<body class="page{% if page.permalink == '/current-feedback-study/' %} page-current-feedback-study{% endif %}{% if page.body_class %} {{ page.body_class }}{% endif %}">
   <a href="#main" class="skip-to-content">Skip to content</a>
   <main id="main" tabindex="-1">
     {% if page.permalink == '/current-feedback-study/' %}
@@ -51,7 +51,7 @@
       <div class="toc-title">On this page</div>
       <ul class="toc-list" id="toc"></ul>
     </nav>
-    <div class="wrap wrap-narrow">
+    <div class="wrap{% if page.wide %} wrap-wide{% else %} wrap-narrow{% endif %}">
       <header>
         <a class="brand" href="{{ '/' | relative_url }}">
           <span class="brand-logo" aria-hidden="true">
@@ -125,6 +125,8 @@
       <article class="content">
         {{ content }}
       </article>
+      <hr class="page-hr" />
+      {% include footer.html %}
     </div>
     {% endif %}
   </main>
