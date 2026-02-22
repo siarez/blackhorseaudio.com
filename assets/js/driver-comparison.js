@@ -368,6 +368,8 @@
         name: driver.name || id,
         series: driver.series || {}
       };
+    }).sort(function (a, b) {
+      return displayDriverName(a).localeCompare(displayDriverName(b), undefined, { sensitivity: "base" });
     });
     return out;
   }
