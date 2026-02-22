@@ -26,7 +26,8 @@ So I built a measurement workflow (hardware + software + protocol) and measured 
 
 If you want all the details and plots:
 
-> **[Download the full technical report (PDF)](/assets/papers/A_Large_Comparative_Analysis_of_Loudspeaker_Driver_Distortion_with_Current_Feedback_Amplification.pdf)**
+> **[1. Download the full technical report (PDF)](/assets/papers/A_Large_Comparative_Analysis_of_Loudspeaker_Driver_Distortion_with_Current_Feedback_Amplification.pdf)**\
+> **[2. Inspect and compare all measurements interactively in browser](/driver-comparison)**
 
 ---
 
