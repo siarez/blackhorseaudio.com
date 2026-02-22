@@ -7,8 +7,16 @@ wide: true
 body_class: driver-compare
 ---
 
-<p class="note">
-  Toggle harmonics globally (H2/H3/H5), then select drivers and mode (VD/CD) to overlay traces.
+<p class="">
+  This page is an interactive viewer for my driver harmonic distortion measurements, so you can compare how different drivers behave under
+  <strong>Voltage Drive (VD)</strong> and <strong>Current Drive (CD)</strong>.
+  <br>
+  The motivation is simple: instead of comparing
+  one static plot at a time, you can overlay multiple drivers and directly compare distortion plots.
+  <br><br>
+  <strong>How to use it:</strong> pick one harmonic (H2, H3, or H5), then select any combination of drivers and VD/CD checkboxes
+  in the left panel. The legend below lists the active traces.
+  Use search and the bulk-select buttons to build comparisons quickly.
 </p>
 
 <div class="compare-grid" id="driver-compare-app" data-src="{{ '/assets/data/all_driver_results.json' | relative_url }}">

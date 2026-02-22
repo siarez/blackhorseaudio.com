@@ -16,14 +16,31 @@
   var clearAll = document.getElementById("clear-all");
 
   var HARMONICS = ["H2", "H3", "H5"];
+  // Extended Glasbey-style categorical palette (high separation on dark backgrounds).
+  // If driver count exceeds this list, deterministic lightness variants are applied.
+  var GLASBEY_COLORS = [
+    "#d60000", "#8c3bff", "#018700", "#00acc6", "#ff7ed1", "#6b4f00", "#ff8c00", "#005f9e",
+    "#00a86b", "#ad002a", "#8f7b00", "#7a00a8", "#00c2ff", "#8b4513", "#4b9f00", "#f032e6",
+    "#4363d8", "#e6194b", "#3cb44b", "#ffe119", "#f58231", "#911eb4", "#46f0f0", "#bfef45",
+    "#bcf60c", "#fabebe", "#008080", "#e6beff", "#9a6324", "#fffac8", "#800000", "#aaffc3",
+    "#808000", "#ffd8b1", "#000075", "#808080", "#1f77b4", "#ff9896", "#2ca02c", "#ffbb78",
+    "#9467bd", "#17becf", "#e377c2", "#7f7f7f", "#bcbd22", "#aec7e8", "#98df8a", "#c5b0d5",
+    "#ff1493", "#00fa9a", "#00bfff", "#ffd700", "#ff4500", "#7fff00", "#6495ed", "#ff69b4",
+    "#20b2aa", "#b8860b", "#dc143c", "#00ced1", "#7b68ee", "#ff6347", "#2e8b57", "#cd5c5c"
+  ];
   var state = {
-    selectedHarmonic: "H2",
+    selectedHarmonic: "H3",
     selectedModesByDriver: {}
   };
   var dataset = null;
 
   function sanitizeId(value) {
     return String(value).toLowerCase().replace(/[^a-z0-9_-]/g, "-");
+  }
+
+  function displayDriverName(driver) {
+    var raw = driver.name || driver.id || "";
+    return String(raw).replace(/_/g, " ").trim();
   }
 
   function setStatus(text) {
@@ -40,32 +57,69 @@
   }
 
   function driverColor(driverId) {
-    // Deterministic, higher-contrast colors on dark background.
     var h = hashString(String(driverId));
-    var hue = (h * 137.508) % 360; // golden-angle spacing
-    var sat = 72 + (h % 3) * 6;    // 72, 78, 84
-    var light = 58 + (Math.floor(h / 7) % 3) * 6; // 58, 64, 70
-    return hslToHex(hue, sat, light);
+    var base = GLASBEY_COLORS[h % GLASBEY_COLORS.length];
+    var variant = Math.floor(h / GLASBEY_COLORS.length) % 3;
+    if (variant === 0) return base;
+    // Overflow handling for > palette size while preserving deterministic mapping.
+    return adjustHexLightness(base, variant === 1 ? 0.12 : -0.12);
+  }
+
+  function adjustHexLightness(hex, delta) {
+    var rgb = hexToRgb(hex);
+    if (!rgb) return hex;
+    var hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+    hsl.l = Math.max(0.22, Math.min(0.82, hsl.l + delta));
+    return hslToHex(hsl.h, hsl.s, hsl.l);
+  }
+
+  function hexToRgb(hex) {
+    var m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    if (!m) return null;
+    return { r: parseInt(m[1], 16), g: parseInt(m[2], 16), b: parseInt(m[3], 16) };
+  }
+
+  function rgbToHsl(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+    var h, s, l = (max + min) / 2;
+    if (max === min) {
+      h = s = 0;
+    } else {
+      var d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      switch (max) {
+        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+        case g: h = (b - r) / d + 2; break;
+        default: h = (r - g) / d + 4;
+      }
+      h /= 6;
+    }
+    return { h: h, s: s, l: l };
   }
 
   function hslToHex(h, s, l) {
-    s /= 100;
-    l /= 100;
-    var c = (1 - Math.abs(2 * l - 1)) * s;
-    var hp = h / 60;
-    var x = c * (1 - Math.abs((hp % 2) - 1));
-    var r = 0, g = 0, b = 0;
-    if (hp >= 0 && hp < 1) { r = c; g = x; b = 0; }
-    else if (hp < 2) { r = x; g = c; b = 0; }
-    else if (hp < 3) { r = 0; g = c; b = x; }
-    else if (hp < 4) { r = 0; g = x; b = c; }
-    else if (hp < 5) { r = x; g = 0; b = c; }
-    else { r = c; g = 0; b = x; }
-    var m = l - c / 2;
-    var toHex = function (v) {
-      var n = Math.round((v + m) * 255);
-      var hex = n.toString(16);
-      return hex.length === 1 ? "0" + hex : hex;
+    var r, g, b;
+    if (s === 0) {
+      r = g = b = l;
+    } else {
+      var hue2rgb = function (p, q, t) {
+        if (t < 0) t += 1;
+        if (t > 1) t -= 1;
+        if (t < 1 / 6) return p + (q - p) * 6 * t;
+        if (t < 1 / 2) return q;
+        if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+        return p;
+      };
+      var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+      var p = 2 * l - q;
+      r = hue2rgb(p, q, h + 1 / 3);
+      g = hue2rgb(p, q, h);
+      b = hue2rgb(p, q, h - 1 / 3);
+    }
+    var toHex = function (x) {
+      var v = Math.round(x * 255).toString(16);
+      return v.length === 1 ? "0" + v : v;
     };
     return "#" + toHex(r) + toHex(g) + toHex(b);
   }
@@ -99,7 +153,7 @@
     var visibleCount = 0;
 
     dataset.drivers.forEach(function (driver) {
-      var name = driver.name || driver.id;
+      var name = displayDriverName(driver);
       if (query && name.toLowerCase().indexOf(query) === -1) return;
       visibleCount++;
 
@@ -158,21 +212,22 @@
     }
 
     var color = driverColor(driver.id || driver.name || "driver");
+    var displayName = displayDriverName(driver);
 
     return {
       type: "scattergl",
       mode: "lines",
-      name: (driver.name || driver.id) + " · " + mode + " · " + harmonic,
+      name: displayName + " · " + mode + " · " + harmonic,
       legendgroup: (driver.id || driver.name) + "-" + mode,
       line: {
         color: color,
         width: mode === "CD" ? 2.4 : 1.4,
-        dash: "solid"
+        dash: mode === "VD" ? "dash" : "solid"
       },
       x: x,
       y: y,
       hovertemplate:
-        "<b>" + (driver.name || driver.id) + "</b><br>" +
+        "<b>" + displayName + "</b><br>" +
         "Mode: " + mode + "<br>" +
         "Harmonic: " + harmonic + "<br>" +
         "f: %{x:.0f} Hz<br>" +
