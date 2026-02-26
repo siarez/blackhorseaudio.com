@@ -7,7 +7,14 @@ hero_image: /assets/images/drivers.jpeg
 hero_alt: "Array of loudspeaker drivers arranged on a table"
 ---
 
-## TL;DR
+# Shortest version
+
+Below I report my findings from a study I did on the effect current-drive amplification on a large number of speaker drivers.
+<u>The main finding</u>: when a driver is current driven, its distortion is reduced to levels comparable to drivers that are 6 times more expensive!
+
+---
+
+# Short version
 
 A couple years ago I went down the “current drive” rabbit hole. I tried it on a few drivers, saw big changes in **odd-order harmonics**, and then asked myself:
 
@@ -30,6 +37,7 @@ If you want all the details and plots:
 > **[2. Inspect and compare all measurements interactively in browser](/driver-comparison)**
 
 ---
+# Full version
 
 ## Back story (why I did this)
 
@@ -103,11 +111,11 @@ To compare drivers more fairly, I pre-compensated the sweep so that the **measur
 
 ## The amplifier used
 
-A TI **TPA3255** amplifier board (BTL, with post-filter feedback) drove the drivers.
+A TI TPA3255 amplifier board (BTL, with post-filter feedback) drove the drivers.
 
 - One channel remained conventional (VF).
 - The other channel was modified to incorporate **current feedback**.
-- The CF channel achieved an output impedance of about **60 Ω** and transconductance of about **1.75 A/V**.
+- The CF channel achieved an output impedance of about 60 Ω and transconductance of about 1.75 A/V.
 
 Each driver was measured once on VF and once on CF.
 
@@ -120,7 +128,7 @@ Most people (including me) find “11 dB lower H3” hard to interpret in terms 
 ### What is “normalized price”?
 I used a rough normalization to reduce “bigger drivers cost more” as a confounder:
 
-- **normalized price = price / weight**
+- normalized price = price / weight
 - then I express it as a **multiple of the cheapest driver** in the dataset
 - the x-axis is **log scale**, so distance corresponds to price multiples
 
@@ -169,8 +177,8 @@ the plot below shows how much the harmonic distortions chnaged (relative to volt
 A few important caveats:
 
 - This is one measurement protocol, one baffle, one microphone placement, one test level.
-- Not all drivers are intended to run cleanly to 4 kHz (especially larger woofers).
-- “Normalized price” (price/weight) is a blunt instrument — useful for trend-spotting, not a law of nature.
+- Not all drivers in the study are intended to run cleanly to up 4 kHz (e.g. larger woofers) or down to 200 Hz (e.g. small midranges)
+- Normalized price (price/weight) is a blunt instrument — useful for trend-spotting, not a law of nature.
 
 If you’re the type who wants every detail, all of it is in the PDF:
 

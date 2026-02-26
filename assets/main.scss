@@ -72,10 +72,8 @@ header{display:flex; align-items:center; justify-content:space-between; gap:16px
 .h-eyebrow{display:inline-block; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); background:#0f1116; border:1px solid var(--hairline); padding:8px 10px; border-radius:999px;}
 h1{font-size:44px; line-height:1.1; margin:14px 0 12px;}
 .brand, .btn, header{font-family: concourse-t3, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
+/* Concourse heading + emphasis mapping */
 h1, h2, h3{letter-spacing: .04em; font-family: concourse-t6, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; font-weight: normal;}
-/* Concourse has weight-specific families; map bold to a heavier family */
-h1, h2, h3{letter-spacing: .04em; font-family: concourse-t6, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; font-weight: normal;}
-/* Concourse has weight-specific families; map bold to a heavier family */
 b, strong{font-family: concourse-t6, sans-serif; font-weight: bold; letter-spacing: 0.02em; opacity:0.9}
 h1 b, h1 strong,
 h2 b, h2 strong,
@@ -120,7 +118,7 @@ h6 b, h6 strong{font-family: concourse-t7, concourse-t6, ui-sans-serif, system-u
 
 /* ToC fixed to window left for study page */
 .toc-fixed{position:fixed; left:16px; top:24px; width:240px; border:1px solid var(--hairline); border-radius:12px; padding:12px; background:#0f1116; z-index:10; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
-.toc-title{font-size:16px; font-family: concourse-t6; letter-spacing: 0.04em; font-weight:700; margin:4px 0 8px; font-size:18px}
+.toc-title{font-size:18px; font-family: concourse-t6; letter-spacing: 0.04em; font-weight:700; margin:4px 0 8px}
 .toc-list{list-style:none; padding:0; margin:0}
 .toc-list li{margin:6px 0}
 .toc-list a{font-size:16px; font-family: concourse-t3; letter-spacing: 0.04em; color:var(--muted)}
