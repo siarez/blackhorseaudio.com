@@ -1,0 +1,29 @@
+---
+layout: page
+title: "Blog"
+permalink: /blog/
+description: "Posts and technical notes from Black Horse Audio."
+wide: false
+body_class: blog-index
+---
+
+<div class="blog-list">
+  {% for post in site.posts %}
+  <article class="blog-row">
+    <a class="blog-thumb" href="{{ post.url | relative_url }}">
+      {% assign thumb = post.image | default: post.hero_image | default: '/assets/images/placeholder.svg' %}
+      <img src="{{ thumb | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" />
+    </a>
+
+    <div class="blog-main">
+      <div class="blog-head">
+        <h2 class="blog-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        <time class="blog-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+      </div>
+      <p class="blog-excerpt">{{ post.excerpt | strip_html | truncatewords: 38 }}</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>

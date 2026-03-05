@@ -39,14 +39,14 @@
   <link rel="stylesheet" href="{{ '/assets/css/typefaces.css' | relative_url }}" />
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}" />
   {% include analytics.html %}
-  {% if page.permalink == '/current-feedback-study/' %}
+  {% if page.toc %}
   <style>html{scroll-behavior:smooth}</style>
   {% endif %}
 </head>
 <body class="page{% if page.permalink == '/current-feedback-study/' %} page-current-feedback-study{% endif %}{% if page.body_class %} {{ page.body_class }}{% endif %}">
   <a href="#main" class="skip-to-content">Skip to content</a>
   <main id="main" tabindex="-1">
-    {% if page.permalink == '/current-feedback-study/' %}
+    {% if page.toc %}
     <nav class="toc toc-fixed" aria-label="On this page">
       <div class="toc-title">On this page</div>
       <ul class="toc-list" id="toc"></ul>
@@ -108,7 +108,7 @@
       })();
     </script>
     {% else %}
-    <div class="wrap wrap-narrow">
+    <div class="wrap{% if page.wide %} wrap-wide{% else %} wrap-narrow{% endif %}">
       <header>
         <a class="brand" href="{{ '/' | relative_url }}">
           <span class="brand-logo" aria-hidden="true">
@@ -130,5 +130,6 @@
     </div>
     {% endif %}
   </main>
+  {% include lightbox.html %}
 </body>
 </html>

@@ -2,9 +2,10 @@
 layout: page
 title: "Current Drive vs Voltage Drive: a 31-driver distortion study"
 permalink: /current-feedback-study/
-description: "A personal measurement writeup comparing voltage drive vs current-feedback drive across 31 loudspeaker drivers, including a ~6× normalized price-to-performance shift for odd-order distortion (regression)."
-hero_image: /assets/images/drivers.jpeg
+description: "A personal measurement writeup comparing voltage drive vs current-feedback drive across 31 loudspeaker drivers, including a ~5× normalized price-to-performance shift for odd-order distortion (regression)."
+hero_image: /assets/images/HDvsPrice_annotated.png
 hero_alt: "Array of loudspeaker drivers arranged on a table"
+toc: true
 ---
 
 # Shortest version
@@ -29,7 +30,7 @@ So I built a measurement workflow (hardware + software + protocol) and measured 
 - In the **200 Hz–4 kHz** band, many drivers showed a clear reduction in **odd-order harmonic distortion** on CF.
 - Averaged across the dataset, I saw roughly **~11 dB lower H3** and **~5–7 dB lower H5** in that band (details below).
 - To put that into “dollars,” I plotted distortion vs **normalized price** metric (price/weight), and fit trend lines.
-  The CF trend shifts in a way that corresponds to roughly a **~6× price multiple** in the regression analysis.
+  The CF trend shifts in a way that corresponds to roughly a **~5× price multiple** in the regression analysis.
 
 If you want all the details and plots:
 
@@ -121,7 +122,7 @@ Each driver was measured once on VF and once on CF.
 
 ---
 
-## Results (the “6×” plot)
+## Results (the “5×” plot)
 
 Most people (including me) find “11 dB lower H3” hard to interpret in terms of real-world value. So I tried a crude but useful translation: relate distortion performance to price.
 
@@ -143,11 +144,11 @@ Yes — dividing by weight is crude. But it’s good enough to reveal a clear tr
 **Reading tip:** right = more expensive, down = lower distortion (better).
 Also, on this axis, a major step to the right is a **10×** increase in normalized price.
 
-![Harmonic distortion vs normalized price-multiple (VF vs CF)](/assets/images/HDvsPrice.png)
+<img class="zoomable" src="/assets/images/HDvsPrice_annotated.png" alt="Harmonic distortion vs normalized price-multiple (VF vs CF)" />
 *Harmonic distortion vs normalized price-multiple (31 drivers). Blue = voltage feedback (VF). Orange = the same drivers measured under current feedback (CF). Trend lines show the overall relationship.*
 
-### The “6×” takeaway
-The interesting part is the horizontal distance between the VF and CF trend lines. In the regression analysis, that shift corresponds to roughly a **~6× price multiple** for odd-order distortion performance.
+### The “5×” takeaway
+The interesting part is the horizontal distance between the VF and CF trend lines. In the regression analysis, that shift corresponds to roughly a **~5× price multiple** for odd-order distortion performance.
 
 Put less formally:
 

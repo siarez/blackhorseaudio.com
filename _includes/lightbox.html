@@ -1,0 +1,47 @@
+<div id="img-lightbox" class="img-lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+  <button id="img-lightbox-close" class="img-lightbox-close" type="button" aria-label="Close image preview">×</button>
+  <img id="img-lightbox-image" class="img-lightbox-image" alt="" />
+</div>
+<script>
+  (function () {
+    var box = document.getElementById("img-lightbox");
+    var boxImg = document.getElementById("img-lightbox-image");
+    var closeBtn = document.getElementById("img-lightbox-close");
+    if (!box || !boxImg || !closeBtn) return;
+
+    function openLightbox(src, alt) {
+      boxImg.src = src;
+      boxImg.alt = alt || "";
+      box.classList.add("is-open");
+      box.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      box.classList.remove("is-open");
+      box.setAttribute("aria-hidden", "true");
+      boxImg.removeAttribute("src");
+      boxImg.alt = "";
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("click", function (e) {
+      var target = e.target;
+      if (!(target instanceof Element)) return;
+      var img = target.closest("img.zoomable");
+      if (img) {
+        e.preventDefault();
+        openLightbox(img.currentSrc || img.src, img.alt);
+      }
+    });
+
+    closeBtn.addEventListener("click", closeLightbox);
+    box.addEventListener("click", function (e) {
+      if (e.target === box) closeLightbox();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && box.classList.contains("is-open")) closeLightbox();
+    });
+  })();
+</script>
+
