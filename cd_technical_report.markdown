@@ -11,7 +11,7 @@ toc: true
 # Shortest version
 
 Below I report my findings from a study I did on the effect current-drive amplification on a large number of speaker drivers.
-<u>The main finding</u>: when a driver is current driven, its distortion is reduced to levels comparable to drivers that are 6 times more expensive!
+<u>The main finding</u>: when a driver is current driven, its distortion is reduced to levels comparable to drivers that are 5 times more expensive!
 
 ---
 
