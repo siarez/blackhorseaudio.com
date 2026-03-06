@@ -8,14 +8,16 @@ toc: true
 
 # Active + DSP Speakers: The Bass Trick Passive Can’t Pull Off
 
-Passive crossovers can sound great, but they also lock you into a lot of “fixed” behavior.
+Passive crossovers can sound great, but they have many shortcomings.
 Your crossover slopes are rarely exactly what the spreadsheet predicts.
 Driver impedance nudges the crossover point around. Part tolerances stack up.
 Inductors add series resistance and distortion if iron core.
 Your carefully chosen design ends up being mostly right, but never quite as exact as you imagined.
-Quality passive crossover parts are EXPENSIVE.
+Quality passive crossover parts are EXPENSIVE, so you may sacrifies the design to save $$$
+(e.g. forego adding that notch filter that your cone breakup needs, or crossover higher than you would like, etc etc)
+Finally, tweaking the design means ordering more parts and waiting for them to arrive.
 
-Active speakers with DSP are the opposite. They are the “I’ll change it and measure/listen again” approach. You get:
+Designing active speakers with DSP is the opposite. They are the “I’ll change it and measure/listen again” approach. You get:
 
 - Precise crossover slopes, not “approximately LR4 after impedance does its thing”
 - Time alignment and phase alignment (your impulse response stops looking like a crime scene)
@@ -26,7 +28,7 @@ Active speakers with DSP are the opposite. They are the “I’ll change it and 
 
 All of that is reason enough to go active.
 
-But there is one trick that, if you do it correctly, feels like cheating.
+But there is one trick that, if you do it correctly, feels like magic.
 
 And once you have used it, it is hard to unsee the advantage.
 
@@ -42,7 +44,7 @@ Here is the idea in plain language.
   <img src="/assets/images/bass_trick/fr.jpeg" alt="Frequency response" />
   <figcaption>Frequency response of the speaker before (orange) and after (green) the bass extention trick.</figcaption>
 </figure>
-If you do it right, you can often get meaningfully deeper bass from the same box, without needing a huge enclosure or turning your woofer into a mechanical stress-test.
+If you do it right, you can often get meaningfully deeper bass from the same box, without turning your woofer into a mechanical stress-test.
 
 In the figure on the right you can see that the f3 is extendend by ~12 Hz from 47 Hz to 35 Hz.
 And f10 is extended from 44 Hz to 38 Hz.
@@ -68,7 +70,7 @@ That is not magic, it is physics. Around Fb, the port or passive radiator is doi
 
 This is the opening that DSP gives you. Because cone excursion is naturally reduced near Fb, you can apply some lift there and get more output without immediately exceeding excursion limits at that frequency.
 
-Passive speakers generally cannot take advantage of this as cleanly because low-frequency “boost” with passive components is bulky, lossy, expensive, and it interacts with driver impedance. Also, the safe version of the trick requires protection below tuning, and passive networks do not provide that in a clean, adjustable way.
+Passive speakers generally cannot take advantage of this, because low-frequency “boost” with passive components is bulky, lossy, expensive, and it interacts with driver impedance. Also, the safe version of the trick requires protection below tuning, and passive networks do not provide that in a clean, adjustable way.
 
 DSP makes it trivial.
 
@@ -84,7 +86,8 @@ It's like two birds with one stone.
 
 ## A warning (Port noise and compression)
 
-If you boost around tuning, you are asking the port or passive radiator to do more work. That can be great, but it has limits. You want to confirm you are not trading “too little cone excursion” for “too much port velocity” or “passive radiator bottoming.”
+If you boost around tuning, you are asking the port or passive radiator to do more work.
+You want to make sure your port or passive radiator has enough headroom for your application.
 
 ## A practical workflow
 
@@ -133,7 +136,7 @@ In the figure on the right we see with the peaking HP filter, cone excursion is 
 
 <div class="clear-float"></div>
 2) **The port (or passive radiator) is not becoming the weak link**
-<figure class="float-half-right">
+<figure class="float-quarter-left">
   <img src="/assets/images/bass_trick/port_velocity.jpeg" alt="Driver excursion versus frequency" />
   <figcaption>Port air velocity vs frequency for the default tuning (orange) and the new lower tuning with EQ (green)</figcaption>
 </figure>
@@ -158,7 +161,7 @@ This is the fun part.
 You can do ten versions of your bass alignment in an afternoon and pick the one that hits your goals.
 
 ## How much bass can you get “for free”?
-It is not free. You pay with amplifier power and radiator demands. But compared to doubling the box size, it is often a very attractive trade.
+It is not free. You pay with amplifier power and radiator demands. But compared to increasing the box size, it is often a very attractive trade.
 
 Once you see it work, it becomes one of the most satisfying examples of why active plus DSP feels like a superpower. You are not just accepting the box alignment, you are shaping it.
 
