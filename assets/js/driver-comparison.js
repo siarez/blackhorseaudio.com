@@ -318,7 +318,7 @@
       responsive: true,
       displaylogo: false,
       modeBarButtonsToRemove: ["lasso2d", "select2d"],
-      scrollZoom: true
+      scrollZoom: false
     });
   }
 
