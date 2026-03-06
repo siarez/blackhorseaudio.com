@@ -1,0 +1,49 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": {{ site.title | jsonify }},
+  "url": {{ "/" | absolute_url | jsonify }},
+  "logo": {{ "/assets/images/horse_logo_favicon/apple-touch-icon.png" | absolute_url | jsonify }}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ site.title | jsonify }},
+  "url": {{ "/" | absolute_url | jsonify }}
+}
+</script>
+
+{% if page.layout == "post" or page.collection == "posts" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ page.title | default: site.title | jsonify }},
+  "description": {{ page.description | default: site.description | strip | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ page.url | absolute_url | jsonify }}
+  },
+  "author": {
+    "@type": "Organization",
+    "name": {{ site.title | jsonify }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.title | jsonify }},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ "/assets/images/horse_logo_favicon/apple-touch-icon.png" | absolute_url | jsonify }}
+    }
+  }{% if page.image or site.og_image %},
+  "image": {{ page.image | default: site.og_image | absolute_url | jsonify }}
+  {% endif %}
+}
+</script>
+{% endif %}
