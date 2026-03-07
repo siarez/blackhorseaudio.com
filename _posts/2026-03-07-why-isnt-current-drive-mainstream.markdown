@@ -3,6 +3,7 @@ layout: post
 title: "If current drive is so great, why isn’t it widely adopted?"
 permalink: /blog/why-isnt-current-drive-mainstream/
 hero_image: /assets/images/Esa_book.jpeg
+hero_caption: "Great book by Esa Meriläinen on the topic"
 description: "A practical, non-hand-wavy answer: history, ecosystem, technical tradeoffs, and why active speakers + DSP make current control more viable today."
 toc: true
 ---
