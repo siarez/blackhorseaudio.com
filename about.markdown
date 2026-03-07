@@ -5,9 +5,9 @@ permalink: /about/
 description: "About Black Horse Audio and the Band-Selective Current Drive project."
 ---
 
-<!-- <figure class="float-quarter-left">
-  <img src="/assets/images/sia.jpeg" alt="Driver excursion versus frequency" />
-</figure> -->
+<figure class="float-quarter-left">
+  <img src="/assets/images/sia_nobg.png" alt="Driver excursion versus frequency" />
+</figure>
 Hey! This is Sia. In a previous life I ran a little company called Serene Audio.
 Back then we had a product (called Talisman) that was very very well received by customers, reviewers, and was a hit at the shows.
 I attribute its success chiefly to the class-leading low distortion of its driver.
