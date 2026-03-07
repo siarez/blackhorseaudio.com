@@ -291,6 +291,7 @@
       paper_bgcolor: "rgba(0,0,0,0)",
       plot_bgcolor: "rgba(0,0,0,0)",
       font: { color: "#e9ecf1" },
+      dragmode: false,
       margin: { l: 62, r: 20, t: 12, b: 56, autoexpand: false },
       xaxis: {
         title: "Frequency (Hz)",
