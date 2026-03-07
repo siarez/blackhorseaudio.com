@@ -55,7 +55,7 @@ a > *{color: var(--parent-color);}
 .wrap-wide{max-width:1320px;}
 header{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:18px 0 2em;}
 .brand{display:flex; align-items:center; gap:14px; text-decoration:none;}
-.brand-logo{width:42px; height:42px; border-radius:50%; background: linear-gradient(135deg, #3b3f60, #23263a); display:grid; place-items:center; box-shadow:var(--shadow); overflow:hidden; color:#fff}
+.brand-logo{width:42px; height:42px; min-width:42px; min-height:42px; aspect-ratio:1/1; flex:0 0 42px; border-radius:50%; background: linear-gradient(135deg, #3b3f60, #23263a); display:grid; place-items:center; box-shadow:var(--shadow); overflow:hidden; color:#fff}
 .brand-logo svg, .brand-logo img{width:40px; height:auto; display:block;}
 .brand-logo img{filter: brightness(0) invert(1); object-fit:contain; object-position:center}
 .brand-name{font-size: 24px; font-weight:700; letter-spacing:.2px;}
