@@ -2,6 +2,7 @@
 layout: post
 title: "If current drive is so great, why isn’t it widely adopted?"
 permalink: /blog/why-isnt-current-drive-mainstream/
+hero_image: /assets/images/Esa_book.jpeg
 description: "A practical, non-hand-wavy answer: history, ecosystem, technical tradeoffs, and why active speakers + DSP make current control more viable today."
 toc: true
 ---
@@ -83,7 +84,7 @@ while still exploring the benefits of current control where it’s most useful.
 
 ---
 
-## Another practical blocker: passive crossovers assume voltage drive
+## Practical blocker: passive crossovers
 
 Even if you ignore damping, there’s a second issue: **passive crossovers are designed assuming a low-impedance voltage
 source**.

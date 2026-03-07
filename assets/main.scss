@@ -166,8 +166,15 @@ h6 b, h6 strong{font-family: concourse-t7, concourse-t6, ui-sans-serif, system-u
 .toc-fixed{position:fixed; left:16px; top:24px; width:240px; border:1px solid var(--hairline); border-radius:12px; padding:12px; background:#0f1116; z-index:10; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
 .toc-title{font-size:18px; font-family: concourse-t6; letter-spacing: 0.04em; font-weight:700; margin:4px 0 8px}
 .toc-list{list-style:none; padding:0; margin:0}
-.toc-list li{margin:6px 0}
-.toc-list a{font-size:16px; font-family: concourse-t3; letter-spacing: 0.04em; color:var(--muted)}
+.toc-list li{margin:16px 0}
+.toc-list a{
+  display:block;
+  font-size:16px;
+  line-height:1.2;
+  font-family: concourse-t3;
+  letter-spacing: 0.04em;
+  color:var(--muted);
+}
 .toc-list a.active{color: rgb(164, 70, 18); font-weight:700}
 @media (max-width:1200px){ .toc-fixed{display:none} }
 

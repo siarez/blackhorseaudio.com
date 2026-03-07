@@ -34,10 +34,16 @@
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}" />
   {% include analytics.html %}
   {% include structured_data.html %}
+  {% if page.toc %}
+  <style>html{scroll-behavior:smooth}</style>
+  {% endif %}
 </head>
 <body>
   <a href="#main" class="skip-to-content">Skip to content</a>
   <main id="main" tabindex="-1">
+    {% if page.toc %}
+    {% include toc.html %}
+    {% endif %}
     <div class="wrap wrap-narrow">
       <header>
         <a class="brand" href="{{ '/' | relative_url }}">
@@ -48,6 +54,11 @@
         </a>
         {% include site_nav.html %}
       </header>
+      {% if page.hero_image %}
+      <div class="page-hero">
+        <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | default: '' | escape }}" decoding="async" loading="eager" />
+      </div>
+      {% endif %}
       <article class="content">
         <h1>{{ page.title }}</h1>
         {% if page.date %}
@@ -55,6 +66,7 @@
         {% endif %}
         {{ content }}
       </article>
+      <hr class="page-hr" />
       {% include footer.html %}
     </div>
   </main>
