@@ -56,7 +56,9 @@
       </header>
       {% if page.hero_image %}
       <figure class="page-hero">
-        <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | default: '' | escape }}" decoding="async" loading="eager" />
+        <div class="page-hero-media">
+          <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | default: '' | escape }}" decoding="async" loading="eager" />
+        </div>
         {% if page.hero_caption or page.hero_caption_html %}
         <figcaption class="page-hero-caption">{% if page.hero_caption_html %}{{ page.hero_caption_html }}{% else %}{{ page.hero_caption | escape }}{% endif %}</figcaption>
         {% endif %}
