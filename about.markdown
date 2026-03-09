@@ -18,9 +18,10 @@ Meaning, I'm always on the hunt for *affordable* low distortion drivers for my p
 A few years ago I came across the concept of current drive amplification.
 At first it sounded almost too good to be true: instead of spending more and more on “better” drivers,
 you could change the way you drive a perfectly normal driver and get a meaningful drop in the distortion the driver itself produces.
-I tried it on a few drivers I had on hand and immediately saw the kind of changes that made me lean in - especially in odd-order harmonics, and IMDs
-the stuff that tends to translate into that subtle “edge” or fatigue over time.
-But I also knew how easy it is to fool yourself with audio experiments,
+I tried it on a few drivers I had on hand and immediately saw the kind of changes that made me lean in - especially in odd-order harmonics and intermodulation distortions -
+the stuff that tends to translate into that subtle “edge” or listening fatigue over time.
+
+I also knew how easy it is to fool yourself with audio experiments,
 so before I invested real time into building hardware around the idea,
 I wanted to answer one simple question: does this work on most drivers, or only on a lucky few?
 
