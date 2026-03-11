@@ -127,7 +127,7 @@ Each driver was measured once on VF and once on CF.
 Most people (including me) find “11 dB lower H3” hard to interpret in terms of real-world value. So I tried a crude but useful translation: relate distortion performance to price.
 
 ### What is “normalized price”?
-I used a rough normalization to reduce “bigger drivers cost more” as a confounder:
+I used a rough normalization method to reduce “bigger drivers cost more” as a confounder:
 
 - normalized price = price / weight
 - then I express it as a **multiple of the cheapest driver** in the dataset
@@ -137,12 +137,11 @@ Yes — dividing by weight is crude. But it’s good enough to reveal a clear tr
 
 ### How to read the plot
 - Blue dots: each driver measured on **VF**
-- Orange dots: the *same driver* measured on **CF**
-- Arrows connect the pair
-- Blue/orange lines are best-fit regression trends (shaded region indicates uncertainty)
+- Orange dots: the *same drivers* measured on **CF**
+- light grey arrows connect the VF→CF measurement for each driver
+- Blue/orange lines are best-fit regression trends
 
 **Reading tip:** right = more expensive, down = lower distortion (better).
-Also, on this axis, a major step to the right is a **10×** increase in normalized price.
 
 <img class="zoomable" src="/assets/images/HDvsPrice_annotated.png" alt="Harmonic distortion vs normalized price-multiple (VF vs CF)" />
 *Harmonic distortion vs normalized price-multiple (31 drivers). Blue = voltage feedback (VF). Orange = the same drivers measured under current feedback (CF). Trend lines show the overall relationship.*
