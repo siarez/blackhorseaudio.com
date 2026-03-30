@@ -1,0 +1,85 @@
+---
+layout: page
+title: "Listen for Yourself"
+permalink: /listen-for-yourself/
+description: "A/B listening page for two-tone loudspeaker recordings under voltage drive and current drive, with FFT overlays per driver."
+body_class: two-tone-page
+---
+
+<section class="two-tone-intro">
+  <h1>Listen for yourself</h1>
+  <p>
+    This page is a practical listening companion to the distortion measurements.
+    For each driver, I recorded a two-tone stimulus under <strong>Voltage Drive (VD)</strong> and
+    <strong>Current Drive (CD)</strong>, then placed the two tracks side by side so you can A/B quickly.
+  </p>
+  <p>
+    The test signal uses two tones: <strong>200 Hz</strong> and <strong>1 kHz</strong>. This makes both
+    harmonic and intermodulation artifacts easier to hear when they are present.
+    The tones were at 106 and 96 dBSPL at the microphone which was place 1 inch from the driver.
+  </p>
+  <p>
+    Best results: use good headphones or very low-distortion speakers, keep playback level moderate,
+    and switch between VD and CD for the same driver before moving on.
+  </p>
+</section>
+
+<section class="two-tone-list" aria-label="Driver listening tests">
+  {% assign two_tone_files = site.static_files | where_exp: "f", "f.path contains '/assets/two_tone/'" %}
+  {% assign driver_dirs_raw = "" %}
+  {% for f in two_tone_files %}
+    {% assign driver_dir = f.path | remove: "/assets/two_tone/" | split: "/" | first %}
+    {% if driver_dir != "" and driver_dir != ".ipynb_checkpoints" %}
+      {% capture driver_dirs_raw %}{{ driver_dirs_raw }}||{{ driver_dir }}{% endcapture %}
+    {% endif %}
+  {% endfor %}
+  {% assign driver_dirs = driver_dirs_raw | split: "||" | uniq | sort %}
+
+  {% for driver in driver_dirs %}
+  {% if driver == "" %}{% continue %}{% endif %}
+  {% assign vd = "" %}
+  {% assign cd = "" %}
+  {% assign fft = "" %}
+  {% assign driver_prefix = "/assets/two_tone/" | append: driver | append: "/" %}
+
+  {% for f in two_tone_files %}
+    {% if f.path contains driver_prefix %}
+      {% if f.extname == ".wav" and f.name contains "-VD_" %}
+        {% assign vd = f %}
+      {% elsif f.extname == ".wav" and f.name contains "-CD_" %}
+        {% assign cd = f %}
+      {% elsif f.extname == ".png" %}
+        {% unless f.path contains "/.ipynb_checkpoints/" %}
+        {% assign fft = f %}
+        {% endunless %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  {% if vd != "" and cd != "" and fft != "" %}
+  <article class="two-tone-driver">
+    <h2>{{ driver | replace: "_", " " }}</h2>
+    <div class="two-tone-grid">
+      <div class="two-tone-tracks">
+        <div class="two-tone-track">
+          <span class="two-tone-mode">VD</span>
+          <audio controls preload="none">
+            <source src="{{ vd.path | relative_url }}" type="audio/wav" />
+          </audio>
+        </div>
+        <div class="two-tone-track">
+          <span class="two-tone-mode">CD</span>
+          <audio controls preload="none">
+            <source src="{{ cd.path | relative_url }}" type="audio/wav" />
+          </audio>
+        </div>
+      </div>
+      <figure class="two-tone-fft">
+        <img class="zoomable" src="{{ fft.path | relative_url }}" alt="FFT overlay for {{ driver | replace: '_', ' ' }} under voltage drive and current drive." loading="lazy" decoding="async" />
+        <figcaption>FFT overlay (VD in blue vs. CD in orange), two-tone test: 200 Hz + 1 kHz.</figcaption>
+      </figure>
+    </div>
+  </article>
+  {% endif %}
+  {% endfor %}
+</section>
