@@ -38,6 +38,18 @@ plugins:
 # Example: GA4 format is G-XXXXXXXXXX
 ga_measurement_id: G-PEHPWGT9VE
 
+# App downloads
+sound_designer_version: "0.1.0"
+sound_designer_downloads:
+  macos:
+    url: "https://github.com/siarez/blackhorseaudio.com/releases/download/v0.1.0/BlackHorseSoundDesigner-0.1.0-macOS-arm64.dmg"
+    platform: "Apple Silicon"
+    size: "60 MB"
+  windows:
+    url: "https://github.com/siarez/blackhorseaudio.com/releases/download/v0.1.0/BlackHorseSoundDesigner-Setup-0.1.0-Windows-x64.exe"
+    platform: "x64"
+    size: "48 MB"
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

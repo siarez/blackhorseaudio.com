@@ -17,13 +17,13 @@ toc: true
   <div class="app-download-grid">
     <div class="app-download-item">
       <h3>macOS</h3>
-      <p><a href="{{ '/assets/downloads/BlackHorseSoundDesigner-0.1.0-macOS-arm64.dmg' | relative_url }}" download>Download `.dmg` installer</a></p>
-      <p class="app-download-meta">Version `0.1.0` | Apple Silicon | 60 MB</p>
+      <p><a href="{{ site.sound_designer_downloads.macos.url }}">Download `.dmg` installer</a></p>
+      <p class="app-download-meta">Version `{{ site.sound_designer_version }}` | {{ site.sound_designer_downloads.macos.platform }} | {{ site.sound_designer_downloads.macos.size }}</p>
     </div>
     <div class="app-download-item">
       <h3>Windows</h3>
-      <p><a href="{{ '/assets/downloads/BlackHorseSoundDesigner-Setup-0.1.0-Windows-x64.exe' | relative_url }}" download>Download `.exe` installer</a></p>
-      <p class="app-download-meta">Version `0.1.0` | x64 | 48 MB</p>
+      <p><a href="{{ site.sound_designer_downloads.windows.url }}">Download `.exe` installer</a></p>
+      <p class="app-download-meta">Version `{{ site.sound_designer_version }}` | {{ site.sound_designer_downloads.windows.platform }} | {{ site.sound_designer_downloads.windows.size }}</p>
     </div>
   </div>
 </div>
